@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="32d97fa8-efa0-4192-b6f7-469f42b70b12" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/maps/index.html" afterPath="$PROJECT_DIR$/maps/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/maps/pics.html" afterPath="$PROJECT_DIR$/maps/pics.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/maps/sh.html" afterPath="$PROJECT_DIR$/maps/sh.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -76,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sh.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sh.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/maps/sh.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="20" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="20" />
+            <state relative-caret-position="186">
+              <caret line="46" column="18" lean-forward="false" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -89,14 +88,14 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/maps/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="172" column="109" lean-forward="false" selection-start-line="172" selection-start-column="109" selection-end-line="172" selection-end-column="109" />
+            <state relative-caret-position="195">
+              <caret line="200" column="30" lean-forward="false" selection-start-line="200" selection-start-column="29" selection-end-line="200" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="屏幕快照 2017-07-22 22.47.25.png" pinned="false" current-in-tab="true">
+      <file leaf-file-name="屏幕快照 2017-07-22 22.47.25.png" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/maps/屏幕快照 2017-07-22 22.47.25.png">
           <provider selected="true" editor-type-id="images">
             <state />
@@ -132,9 +131,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/maps/sh.html" />
         <option value="$PROJECT_DIR$/maps/pics.html" />
         <option value="$PROJECT_DIR$/maps/index.html" />
+        <option value="$PROJECT_DIR$/maps/sh.html" />
       </list>
     </option>
   </component>
@@ -231,7 +230,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.pics.html">
+  <component name="RunManager" selected="JavaScript Debug.sh.html">
     <configuration default="false" name="sh.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/website/maps/sh.html">
       <method />
     </configuration>
@@ -308,9 +307,9 @@
     </list>
     <recent_temporary>
       <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.pics.html" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
-        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.sh.html" />
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.sh.html" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.pics.html" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
       </list>
     </recent_temporary>
   </component>
@@ -324,12 +323,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1500826514931</updated>
-      <workItem from="1500826517659" duration="8825000" />
+      <workItem from="1500826517659" duration="9085000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8825000" />
+    <option name="totallyTimeSpent" value="9085000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="733" extended-state="6" />
@@ -451,25 +450,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/maps/sh.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="20" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="20" />
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/maps/屏幕快照 2017-07-22 22.47.25.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/maps/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="172" column="109" lean-forward="false" selection-start-line="172" selection-start-column="109" selection-end-line="172" selection-end-column="109" />
+        <state relative-caret-position="195">
+          <caret line="200" column="30" lean-forward="false" selection-start-line="200" selection-start-column="29" selection-end-line="200" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/maps/屏幕快照 2017-07-22 22.47.25.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
+    <entry file="file://$PROJECT_DIR$/maps/sh.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="46" column="18" lean-forward="false" selection-start-line="46" selection-start-column="18" selection-end-line="46" selection-end-column="18" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>
