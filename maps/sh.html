@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css" />
+	  <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js"></script>
+    <title>Shanghai_Bike_Info</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    #legend {
+        font-family: Arial, sans-serif;
+        background: #fff;
+        padding: 10px;
+        margin: 10px;
+        border: 3px solid #000;
+    }
+    #legend h3 {
+        margin-top: 0;
+    }
+    #legend img {
+        vertical-align: middle;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+        <div id="legend"><h3>Legend</h3></div>
+
+    <script>
+      function initMap() {
+        // Styles a map in night mode.
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 31.2222, lng: 121.4733}, //31.2231338,120.9162975
+          zoom: 14,
+          styles: [
+            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+            {
+              featureType: 'administrative.locality',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'geometry',
+              stylers: [{color: '#263c3f'}]
+            },
+            {
+              featureType: 'poi.park',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#6b9a76'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry',
+              stylers: [{color: '#38414e'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#212a37'}]
+            },
+            {
+              featureType: 'road',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#9ca5b3'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry',
+              stylers: [{color: '#746855'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'geometry.stroke',
+              stylers: [{color: '#1f2835'}]
+            },
+            {
+              featureType: 'road.highway',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#f3d19c'}]
+            },
+            {
+              featureType: 'transit',
+              elementType: 'geometry',
+              stylers: [{color: '#2f3948'}]
+            },
+            {
+              featureType: 'transit.station',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#d59563'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'geometry',
+              stylers: [{color: '#17263c'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.fill',
+              stylers: [{color: '#515c6d'}]
+            },
+            {
+              featureType: 'water',
+              elementType: 'labels.text.stroke',
+              stylers: [{color: '#17263c'}]
+            }
+          ]
+        });
+          google.maps.event.addListener(map,'click',function() {
+              infowindow.close();
+          });
+		var metroLayer = new google.maps.Data();
+		var bikeLayer = new google.maps.Data();
+		metroLayer.loadGeoJson('metro_bike.geojson');
+		metroLayer.setStyle({
+		  icon: 'red2.png',
+		  //fillColor: 'green'
+		});
+		bikeLayer.loadGeoJson('bike_total.geojson');
+		bikeLayer.setStyle({
+		  icon: 'smalldot.png',
+		});
+		metroLayer.setMap(map);
+		bikeLayer.setMap(map);
+        
+        
+        var icons = {
+            bike: {
+                name: 'Metro Station',
+                icon: 'red.png'
+            },
+            metro: {
+                name: 'OFO Bike',
+                icon: 'smalldot.png'
+            }
+        };
+
+
+        var legend = document.getElementById('legend');
+        for (var key in icons) {
+            var type = icons[key];
+            var name = type.name;
+            var icon = type.icon;
+            var div = document.createElement('div');
+            div.innerHTML = '<img src="' + icon + '"> ' + name;
+            legend.appendChild(div);
+        }
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+
+        var infowindow = new google.maps.InfoWindow();
+
+
+        metroLayer.addListener('click',function(e) {
+            var metro_name = e.feature.getProperty("station");
+            var bike_number = e.feature.getProperty("bikes");
+            console.log(bike_number);
+            infowindow.setContent('Station: '+ metro_name +'</br> Number of bikes around: ' + bike_number);
+            infowindow.setPosition(e.latLng);
+            infowindow.open(map,this);
+        });
+
+
+      }
+
+	      </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfkY_bnswOais5YpxfyFx9j6kqoZUB-Us&callback=initMap"
+    async defer></script>
+  </body>
+</html>

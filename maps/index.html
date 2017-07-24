@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background:#2A2C31;
+        }
+
+        #centerMe {
+            margin:10% 30%;
+            height:40px;
+            width:525px;
+        }
+        .tlt, a{
+            text-decoration: none;
+            cursor: hand;
+            color:white;
+            font-family:Tahoma;
+            font-size:40px;
+            line-height:40px;
+            padding:0 10px;
+            text-shadow:none;
+            font-weight:100;
+            -webkit-font-smoothing: antialiased;
+            -moz-font-smoothing: antialiased;
+            -o-font-smoothing: antialiased;
+            -ms-font-smoothing: antialiased;
+            font-smoothing: antialiased
+        }
+        .title{
+            color:white;
+            font-family:Tahoma;
+            float:left;
+            font-size:40px;
+            line-height:40px;
+            padding:0 10px;
+            text-shadow:none;
+            font-weight:100;
+            -webkit-font-smoothing: antialiased;
+            -moz-font-smoothing: antialiased;
+            -o-font-smoothing: antialiased;
+            -ms-font-smoothing: antialiased;
+            font-smoothing: antialiased
+        }
+
+        .hidden{
+            display: none;
+        }
+
+        .floatLeft {
+            float:left;
+        }
+
+        #textWrapper {
+            height:40px;
+            width:350px;
+            float:right;
+        }
+
+        .bottom {
+            margin: 75px 0 0 0;
+            opacity:0;
+        }
+
+        .live {
+            margin:0;
+        }
+
+        .rotate {
+            -webkit-transition:all 0.9s;
+            -moz-transition:all 0.9s;
+            -ms-transition:all 0.9s;
+            -o-transition:all 0.9s;
+            transition:all 0.9s;
+            -webkit-transition-timing-function:ease-out;
+            -moz-transition-timing-function:ease-out;
+            -ms-transition-timing-function:ease-out;
+            -o-transition-timing-function:ease-out;
+            transition-timing-function:ease-out;
+            -webkit-transform:rotate(-360deg);
+            -moz-transform:rotate(-360deg);
+            -ms-transform:rotate(-360deg);
+            -o-transform:rotate(-360deg);
+            transform:rotate(-360deg);
+        }
+    </style>
+
+    <style>
+        #codepen-footer, #codepen-footer * {
+            -webkit-box-sizing: border-box !important;
+            -moz-box-sizing: border-box !important;
+            box-sizing: border-box !important;
+        }
+        #codepen-footer {
+            display: block !important;
+            position: fixed !important;
+            top: auto !important;
+            bottom: 0 !important;
+            /*left: 0 !important;*/
+            right: auto !important;
+            width: 100% !important;
+            padding: 0 10px !important;
+            margin: 0 !important;
+            height: 30px !important;
+            line-height: 30px !important;
+            font-size: 12px !important;
+            color: #eeeeee !important;
+            background-color: #505050 !important;
+            text-align: inherit !important;
+            background: -webkit-linear-gradient(top, #505050, #383838) !important;
+            background: -moz-linear-gradient(top, #505050, #383838) !important;
+            background: -ms-linear-gradient(top, #505050, #383838) !important;
+            background: -o-linear-gradient(top, #505050, #383838) !important;
+            border-top: 1px solid black !important;
+            border-bottom: 1px solid black !important;
+            border-radius: 0 !important;
+            border-image: none !important;
+            box-shadow: inset 0 1px 0 #6e6e6e, 0 2px 2px rgba(0, 0, 0, 0.4) !important;
+            z-index: 300 !important;
+            font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, sans-serif !important;
+            letter-spacing: 0 !important;
+            word-spacing: normal !important;
+            word-spacing: 0 !important;
+            -webkit-transform: none !important;
+            -moz-transform: none !important;
+            -ms-transform: none !important;
+            -o-transform: none !important;
+            transform: none !important;
+        }
+        #codepen-footer a {
+            color: #a7a7a7 !important;
+            text-decoration: none !important;
+            text-shadow: none !important;
+            border: 0 !important;
+        }
+        #codepen-footer a:hover {
+            color: white !important;
+        }
+        #codepen-footer:before,
+        #codepen-footer:after {
+            display: none;
+        }
+        #textWrapper{
+            display:block;
+
+            margin-left:20%;
+            margin-top: 10%;
+            cursor: pointer;
+            cursor: hand;
+
+        }
+        #spinner:before{
+            content: "\f206 ";
+            font-family: FontAwesome;
+        }
+    </style>
+</head>
+
+<body>
+<div id="centerMe">
+    <div class="floatLeft">
+        <div class="title">共享单车可视化</div>
+        <div class="title">Data Visulaization</div>
+        <div id="spinner" class="title rotate">
+        </div>
+    </div>
+    <div id="textWrapper">
+        <div class="tlt live"><span class="sr-only">Bike shares in Shanghai </span><i class="fa fa-external-link fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="title bottom hidden"></div>
+    </div>
+
+</div>
+</body>
+<script>
+
+    var words = ['<a href="/website/maps/sh.html">Map</a>'+'<i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>', '<a href="/website/maps/pics.html">Graphs</a> '+'<i class="fa fa-area-chart fa-fw" aria-hidden="true"></i>', '<a href="">About us</a> '+'<i class="fa  fa-users fa-fw" aria-hidden="true"></i>'];
+    var numOfWords = words.length;
+    var counter = 0;
+
+    setInterval(function() {
+        //make the fing thing rotate
+        $('#spinner').toggleClass('rotate');
+        //
+    }, 1750);
+
+    setInterval(function() {
+
+        var coreAnim = function(){
+            var live = $('.live');
+            var bottom = $('.bottom');
+
+            //live moves to top and hide
+            live.animate({
+                opacity: 0.0,
+                marginTop: "-100px"
+            }, 1000, 'linear', function(){
+                live.removeClass('live').addClass('bottom hidden');
+                live.removeAttr('style');
+            });
+            //bottom unhide moves to live
+            bottom.html(words[counter]);
+
+
+            bottom.removeClass("hidden");
+            bottom.animate({
+                opacity: 1.0,
+                marginTop: "0px"
+            }, 1000, 'linear', function(){
+                bottom.removeClass('bottom').addClass('live');
+                bottom.removeAttr('style');
+            });
+        };
+
+        var updateCounter = function(){
+            if((counter + 1) == numOfWords){
+                counter = 0;
+            } else {
+                counter++;
+            }
+        };
+
+        var cleanUp = function(){
+            var item = $('.bottom');
+            $after = item.next();
+            item.insertAfter($after);
+        };
+
+        coreAnim();
+        updateCounter();
+        cleanUp();
+//        $( '#textWrapper' ).click(function(x) {
+//            alert( x.html );
+//        });
+
+    }, 3500);
+
+
+
+</script>
+</html>
